@@ -1,16 +1,19 @@
 {
   "name": "m-aldrin.space",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "source project for m-aldrin.space",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve",
     "start": "npx @11ty/eleventy"
   },
-  "keywords": [],
-  "author": "",
+  "author": "marcus aldrin",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "autoprefixer": "^10.4.2",
+    "csso": "^5.0.2",
+    "eleventy-postcss-extension": "^1.0.0",
+    "postcss-nested": "^5.0.6",
+    "terser": "^5.10.0"
   }
 }
