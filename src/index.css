@@ -1,0 +1,5 @@
+@import "css/_reset.css";
+
+body{
+    padding-inline-end: 3000px;
+}

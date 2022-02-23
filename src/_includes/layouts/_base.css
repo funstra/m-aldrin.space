@@ -1,0 +1,12 @@
+body {
+  background-color: blue;
+}
+
+body {
+  & .test {
+    background-color: blue;
+  }
+  & .hello {
+    color: red;
+  }
+}
