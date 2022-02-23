@@ -1,5 +1,10 @@
-@import "reset.css";
-@import "layouts/base.css";
 * {
   box-sizing: border-box;
+}
+body {
+  background-color: pink !important;
+  transform: translate(30px 30p);
+  & main {
+    color: black;
+  }
 }

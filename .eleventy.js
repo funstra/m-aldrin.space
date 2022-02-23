@@ -21,7 +21,7 @@ module.exports = config => {
   //   },
   // });
   // postcss plugin - - - -
-  config.addPlugin(pluginCSS);
+  // config.addPlugin(pluginCSS);
   // minify js - - - -
   config.addTemplateFormats("js");
   config.addExtension("js", {
