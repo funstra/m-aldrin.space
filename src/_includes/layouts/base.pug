@@ -8,4 +8,10 @@ html(lang="en")
         script(src="/index.js" defer) 
         title Document
     body
-        main !{content}
+        header
+            nav
+                each nav in collections.nav
+                    - const name = nav.url == '/' ? 'home' : nav.fileSlug
+                    a(href=nav.url)= name
+
+        main(data-page=page.fileSlug) !{content}

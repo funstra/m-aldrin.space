@@ -4,10 +4,10 @@
   "description": "source project for m-aldrin.space",
   "scripts": {
     "dev:eleventy": "npx @11ty/eleventy --serve",
-    "dev:parcel": "parcel watch src/index.js src/js/**/*.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
-    "dev": "concurrently npm:dev:*",
+    "dev:parcel": "parcel watch src/*.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
+    "dev": "concurrently npm:dev:parcel npm:dev:eleventy",
     "build:eleventy": "npx @11ty/eleventy",
-    "build:parcel": "parcel build src/index.js src/js/**/*.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
+    "build:parcel": "parcel build src/index.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
     "buid": "concurrently npm:build*"
   },
   "author": "marcus aldrin",
@@ -16,8 +16,12 @@
     "@11ty/eleventy": "^1.0.0",
     "@parcel/optimizer-css": "^2.3.2",
     "@parcel/transformer-css-experimental": "^2.3.2",
+    "autoprefixer": "^10.4.2",
     "concurrently": "^7.0.0",
-    "parcel": "^2.3.2"
+    "parcel": "^2.3.2",
+    "postcss": "^8.4.6"
+  },
+  "alias": {
   },
   "postcss": {
     "plugins": {

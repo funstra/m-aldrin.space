@@ -1,1 +1,1 @@
-console.log('hellooooafaefae')
+import "./js/data-page"
