@@ -4,7 +4,7 @@
   "description": "source project for m-aldrin.space",
   "scripts": {
     "dev:eleventy": "npx @11ty/eleventy --serve",
-    "dev:parcel": "parcel watch src/*.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
+    "dev:parcel": "parcel watch src/js/**/*.js  src/css/**/*.css --dist-dir _site",
     "dev": "concurrently npm:dev:parcel npm:dev:eleventy",
     "build:eleventy": "npx @11ty/eleventy",
     "build:parcel": "parcel build src/index.js src/index.css src/css/**/[!_]*.scss --dist-dir _site",
@@ -21,8 +21,7 @@
     "parcel": "^2.3.2",
     "postcss": "^8.4.6"
   },
-  "alias": {
-  },
+  "alias": {},
   "postcss": {
     "plugins": {
       "autoprefixer": {}

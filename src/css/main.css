@@ -1,0 +1,6 @@
+@import "../_includes/css/reset.css";
+
+body{
+    font-family: monospace;
+    background-color: green;
+}
