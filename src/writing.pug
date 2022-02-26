@@ -1,3 +1,9 @@
 ---
 layout: layouts/base
+tags: nav
 ---
+ol
+    each wrote in collections.writings
+        - const {url,fileSlug} = wrote.data.page
+        li.wrote-post
+            a(href=url)= fileSlug

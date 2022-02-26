@@ -1,5 +1,73 @@
-@import "../_includes/css/reset.css";
+@import "lib/reset.css";
+@import "lib/data-page.css";
+@import "lib/transition.css";
+@import "lib/utils.css";
+@import "lib/rich-text.css";
 
-body{
-    font-family: monospace;
+body {
+  display: flex;
+  flex-direction: column;
+
+  padding-inline: 1em;
+
+  overflow: visible;
+
+  font-family: monospace;
+  & > div:last-child {
+    display: flex;
+    flex-grow: 1;
+
+    border-radius: 0.25em;
+
+    overflow-y: hidden;
+    & > [data-page] {
+      height: 100%;
+    }
+  }
+  & > header {
+    padding-top: 0.5em;
+    & nav {
+      width: max-content;
+      margin-left: auto;
+      display: flex;
+      gap: 0.5em;
+    }
+    & > hr {
+      margin-block-start: 0.5em;
+      width: 100vw;
+      margin-inline-start: -1em;
+    }
+  }
+}
+.time-out {
+  & a {
+    pointer-events: none;
+    opacity: 0.75;
+  }
+}
+
+main {
+  padding-bottom: 1em;
+}
+
+a {
+  position: relative;
+  color: black;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    transition: height 75ms;
+  }
+  &:hover {
+    color: white;
+    &::after {
+      height: 100%;
+    }
+  }
 }

@@ -13,8 +13,10 @@ html(lang="en")
                 each nav in collections.nav
                     - const name = nav.url == '/' ? 'home' : nav.fileSlug
                     a(href=nav.url)= name
+            hr
         - console.log('base calling: ',layout)
         - const _layout = layout.endsWith("base") ? page.fileSlug : layout
-        div(data-page=_layout) 
-            main !{content}
-            footer
+        div
+            div(data-page=_layout) 
+                main !{content}
+                footer

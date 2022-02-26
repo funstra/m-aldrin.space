@@ -1,1 +1,1 @@
-import "../_includes/js/data-page"
+import "./lib/data-page"

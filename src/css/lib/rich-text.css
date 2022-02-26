@@ -1,0 +1,20 @@
+:is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 1em;
+}
+p:not(:first-of-type) {
+  margin-top: 1em;
+}
+
+ol,
+ul {
+  font-style: italic;
+  margin-inline-start: 2em;
+  margin-block: 1em;
+}
+
+ul {
+  & li {
+    list-style-type: "\2192";
+    padding-left: 0.5em;
+  }
+}

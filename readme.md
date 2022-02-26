@@ -12,9 +12,11 @@ source project for [m-aldrin.space](https://m-aldrin.space)
 
 - folder structure
     - src
-        - _inculdes -> *stuff consumed by pages/entry points*
+        - _inculdes -> *stuff consumed by pages*
             - layouts -> consumed by pages
             - partials -> consumed by layouts
         - css -> css entry points
+            - lib
         - js -> js entry points
+            - lib
         
