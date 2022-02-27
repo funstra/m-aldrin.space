@@ -9,7 +9,7 @@
     "build:eleventy": "npx @11ty/eleventy",
     "build:parcel": "parcel build",
     "buid": "concurrently npm:build:eleventy npm:build:parcel",
-    "start": "concurrently npm:build:eleventy npm:build:parcel"
+    "start": "npm run build:eleventy && npm run build:parcel"
   },
   "author": "marcus aldrin",
   "license": "ISC",
