@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.css": "scss"
-    }
+    },
+    "liveServer.settings.root": "./_site/"
 }

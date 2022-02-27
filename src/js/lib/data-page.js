@@ -57,7 +57,6 @@ const setPage = async ({ pathname, href }) => {
   const destinationDocument = await getHTML(href);
   const [dest, src] = await diffPage(destinationDocument.page);
 
-  // console.log(dest.val);
   if (
     dest.val.startsWith("layouts/writing") ||
     dest.val.startsWith("/writings/")
@@ -67,10 +66,6 @@ const setPage = async ({ pathname, href }) => {
     src.elm.parentElement.classList.remove("f-col");
   }
 
-  // src.elm.style.height = "50%";
-  // src.elm.style.opacity = "0";
-  // src.elm.classList.add("slideOut");
-  // dest.elm.classList.add("slideIn");
   document.documentElement.classList.add("time-out");
   src.elm.classList.add("slideOut");
   dest.elm.classList.add("slideIn");
@@ -80,15 +75,9 @@ const setPage = async ({ pathname, href }) => {
     document.documentElement.classList.remove("time-out");
   }, 125);
 
-  // dest.elm.style.opacity = "0";
   src.elm.parentElement.appendChild(dest.elm);
   document.querySelector("title").innerHTML = destinationDocument.title;
-  //  compute DOM???
-  // dest.elm.getBoundingClientRect();
-  // dest.elm.style.opacity = "1";
-  // dest.elm.scrollIntoView({
-  //   behavior: "smooth",
-  // });
+
   return true;
 };
 
@@ -118,7 +107,6 @@ document.addEventListener("click", async e => {
       document.documentElement.classList.remove("loading");
       // push anchor pathname to history
       history.pushState({}, null, target.pathname);
-      // dynamicImport("/", "../tree.js");
       if (location.pathname === "/") {
         console.log("hello?");
         import("../tree").then(module => {

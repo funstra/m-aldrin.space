@@ -5,8 +5,6 @@ import { random } from "./lib/stochastic.js";
 export const init = () => {
   const SVG = document.querySelector("svg");
 
-  // lineGroup.setAttribute('opacity', 0.1)
-
   const tree = (o, step, n) => {
     const lineGroup = svg_element("g");
     SVG.appendChild(lineGroup);
@@ -140,7 +138,6 @@ export const init = () => {
   );
   const t2 = tree(t2_origin, vector(16, yStep), nSteps / 2);
   const BBox = SVG.getBBox();
-  SVG.setAttribute("width", BBox.width);
   SVG.setAttribute("height", BBox.height);
   SVG.style.opacity = 1;
 };

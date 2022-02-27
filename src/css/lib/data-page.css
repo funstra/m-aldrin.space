@@ -7,7 +7,9 @@
 }
 [data-page=""]{
   & svg{
-    min-width: 100%;
+  }
+  & > main{
+    height: 100%;
   }
 }
 [data-page="about"] {
