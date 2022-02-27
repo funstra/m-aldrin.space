@@ -5,25 +5,23 @@ import { random } from "./lib/stochastic.js";
 export const init = () => {
   const SVG = document.querySelector("svg");
 
-  const lineGroup = svg_element("g");
-  SVG.appendChild(lineGroup);
-  lineGroup.setAttribute("stroke", "black");
-  lineGroup.setAttribute("stroke-width", "2.5");
-  lineGroup.setAttribute("opacity", 0.75);
   // lineGroup.setAttribute('opacity', 0.1)
 
-  const circleGroup = svg_element("g");
-  SVG.appendChild(circleGroup);
-
-  const rectGroup = svg_element("g");
-  SVG.appendChild(rectGroup);
-
   const tree = (o, step, n) => {
-    // const coords = {
-    //     [o.x.toString()]: {
-    //         [o.y.toString()]: o
-    //     }
-    // }
+    const lineGroup = svg_element("g");
+    SVG.appendChild(lineGroup);
+    lineGroup.setAttribute("stroke", "black");
+    lineGroup.setAttribute("stroke-width", "2.5");
+    lineGroup.setAttribute("opacity", 0.75);
+
+    const circleGroup = svg_element("g");
+    SVG.appendChild(circleGroup);
+
+    const origin_c = circle(origin, 8);
+    circleGroup.appendChild(origin_c);
+
+    const rectGroup = svg_element("g");
+    SVG.appendChild(rectGroup);
     const coords = new Map();
     coords.set(o, o);
     const inner = (vec0, col, depth = 0) => {
@@ -31,19 +29,10 @@ export const init = () => {
       const node1 = random(0, 1) > 0.05 + Math.pow(0.15 + (depth / n) * 0.6, 2);
       if (node0) {
         const vec1 = vec0.add(step).rotate(-0.25, vec0);
-        // console.log(coords[vec1.x?.toString()]?.[vec1.y?.toString()])
-        // console.log(coords.get(`${vec1.x} ${vec1.y}`))
         if (!coords.get(`${vec1.x} ${vec1.y}`) || random(0, 1) > 0.45) {
-          // console.log(coords.get(vec1))
-          // console.log(col)
-          // console.log('left')
-          // console.log(vec1)
-          // console.log(coords[vec1.x?.toString()]?.[vec1.y?.toString()])
           const l = line(vec0, vec1);
           l.setAttribute("data-depth", depth);
-          // l.setAttribute('opacity', 0.5)
           lineGroup.appendChild(l);
-          // coords.set(vec1, vec1)
           coords.set(`${vec1.x} ${vec1.y}`, vec1);
           if (depth < n) {
             l.setAttribute("stroke", col ?? "orange");
@@ -66,7 +55,6 @@ export const init = () => {
           l.setAttribute("stroke-dashoffset", 1);
           lineGroup.appendChild(l);
         } else {
-          // console.log('hello?')
           const _vec1 = vector.lerp(vec0, vec1, 0.5);
           const l = line(vec0, _vec1);
           l.setAttribute("stroke", "red");
@@ -78,14 +66,7 @@ export const init = () => {
       }
       if (node1) {
         const vec1 = vec0.add(step).rotate(0.25, vec0);
-        // console.log(coords[vec1.x?.toString()]?.[vec1.y?.toString()])
-        // console.log(coords.get(`${vec1.x} ${vec1.y}`))
         if (!coords.get(`${vec1.x} ${vec1.y}`)) {
-          // console.log(coords.get(vec1))
-          // console.log(col)
-          // console.log('right')
-          // console.log(vec1)
-          // console.log(coords[vec1.x?.toString()]?.[vec1.y?.toString()])
           const l = line(vec0, vec1);
           l.setAttribute("data-depth", depth);
           lineGroup.appendChild(l);
@@ -111,7 +92,6 @@ export const init = () => {
           l.setAttribute("stroke-dashoffset", -4);
           lineGroup.appendChild(l);
         } else {
-          // console.log('hello?')
           const _vec1 = vector.lerp(vec0, vec1, 0.5);
           const l = line(vec0, _vec1);
           l.setAttribute("stroke", "red");
@@ -123,13 +103,29 @@ export const init = () => {
       }
     };
     inner(o);
-    return coords;
+    return [lineGroup, rectGroup, circleGroup];
   };
 
+  const nSteps = 15;
   const origin = vector(0, -448);
-  const origin_c = circle(origin, 8);
-  circleGroup.appendChild(origin_c);
 
-  const t = tree(origin, vector(0, 64), 15);
-  SVG.style.opacity = 1
+  const yStep = SVG.getBoundingClientRect().height / nSteps;
+  const t0 = tree(origin, vector(64, yStep), nSteps/2);
+  const t1 = tree(origin, vector(-16, yStep*2), nSteps / 4);
+  const t1_least = [...t1[0].querySelectorAll("line")].reduce((prev, cur) => {
+    if (cur.getAttribute("y2") > prev.getAttribute("y2")) {
+      return cur;
+    }
+    return prev;
+  });
+  const t2_origin = vector(
+    parseInt(t1_least.getAttribute("x2")),
+    parseInt(t1_least.getAttribute("y2"))
+  );
+  const t2 = tree(t2_origin, vector(0, 16), nSteps * 2);
+
+  const BBox = SVG.getBBox();
+  SVG.setAttribute("height", BBox.height);
+  SVG.setAttribute("width", BBox.width);
+  SVG.style.opacity = 1;
 };

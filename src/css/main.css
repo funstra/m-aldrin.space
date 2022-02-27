@@ -88,3 +88,8 @@ a {
     }
   }
 }
+img,
+picture {
+  border-radius: 0.125em;
+  box-shadow: 0 0 2em -1em hsl(var(--color-black) / 1);
+}

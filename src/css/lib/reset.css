@@ -34,12 +34,14 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
+picture {
+  width: 100%;
+}
+img,
 picture,
 svg {
-  width: 100%;
   display: block;
 }
-
 img {
   object-fit: cover;
 }

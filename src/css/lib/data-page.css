@@ -5,7 +5,11 @@
   overflow-y: scroll;
   transition: opacity 175ms ease-out;
 }
-[data-page=""],
+[data-page=""]{
+  & svg{
+    min-width: 100%;
+  }
+}
 [data-page="about"] {
   & > main {
     height: 100%;
@@ -13,7 +17,7 @@
 }
 [data-page="about"] {
   & main{
-    padding: 1em;
+    padding: 2em;
   }
   & picture,
   & img {

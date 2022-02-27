@@ -21,9 +21,8 @@ html(lang="en")
     body
         header
             nav
-                each nav in collections.nav
-                    - const name = nav.url == '/' ? 'funstra' : nav.fileSlug
-                    a(href=nav.url)= name
+                each page in nav
+                    a(href=page.url)= page.name
             hr
         - const _layout = layout.endsWith("base") ? page.fileSlug : layout
         div

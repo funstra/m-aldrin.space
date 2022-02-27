@@ -1,0 +1,14 @@
+[
+    {
+        "url": "/",
+        "name": "funstra"
+    },
+    {
+        "url": "/about/",
+        "name": "about"
+    },
+    {
+        "url": "/writing/",
+        "name": "writing"
+    }
+]
