@@ -5,4 +5,27 @@
   overflow-y: scroll;
   transition: opacity 175ms ease-out;
 }
+[data-page=""],
+[data-page="about"] {
+  & > main {
+    height: 100%;
+  }
+}
+[data-page="about"] {
+  & main{
+    padding: 1em;
+  }
+  & picture,
+  & img {
+    height: 100%;
+  }
+}
 
+[data-page="layouts/writing"] {
+  & > main {
+    height: 100%;
+  }
+  & nav {
+    margin-top: 2em;
+  }
+}

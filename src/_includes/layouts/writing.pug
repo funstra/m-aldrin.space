@@ -1,4 +1,15 @@
 ---
 layout: layouts/base
 ---
-article(data-page=page.filePathStem) !{content}
+div(style="height:100%")
+    article(data-page=page.filePathStem) 
+        |   !{content}
+        nav
+        - const nextWrote = filters.getNextCollectionItem(collections.writings,page)
+        if nextWrote
+            - const {url,fileSlug} = nextWrote
+                a(href=url) next wrote &rarr;
+        - const prevWrote = filters.getPreviousCollectionItem(collections.writings,page)
+        if prevWrote
+            - const {url,fileSlug} = prevWrote
+                a(href=url) &larr; prev wrote

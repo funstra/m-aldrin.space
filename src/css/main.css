@@ -3,15 +3,26 @@
 @import "lib/transition.css";
 @import "lib/utils.css";
 @import "lib/rich-text.css";
-
+@import "lib/responsive-type.css";
+@import "lib/article.css";
+html {
+  --color-black: 0 0% 20%;
+  --color-white: 0 0% 97.5%;
+}
 body {
   display: flex;
   flex-direction: column;
+
+  margin-inline: auto;
+  max-width: 110ch;
 
   padding-inline: 1em;
 
   overflow: visible;
 
+  background-color: hsl(var(--color-white));
+
+  color: hsl(var(--color-black));
   font-family: monospace;
   & > div:last-child {
     display: flex;
@@ -25,17 +36,23 @@ body {
     }
   }
   & > header {
-    padding-top: 0.5em;
+    --padding-block: 1em;
+    padding-top: var(--padding-block);
     & nav {
-      width: max-content;
+      width: 100%;
       margin-left: auto;
       display: flex;
       gap: 0.5em;
+      & > :first-child {
+        margin-inline-end: auto;
+      }
     }
     & > hr {
-      margin-block-start: 0.5em;
-      width: 100vw;
-      margin-inline-start: -1em;
+      border-width: 0.0625em;
+      --border-color: 0 0 0;
+      color: currentColor;
+      transition: border-width 125ms ease-out;
+      margin-block-start: var(--padding-block);
     }
   }
 }
@@ -52,7 +69,7 @@ main {
 
 a {
   position: relative;
-  color: black;
+  color: currentColor;
   &::after {
     content: "";
     position: absolute;
@@ -61,11 +78,11 @@ a {
     height: 0%;
     left: 0;
     bottom: 0;
-    background-color: black;
+    background-color: hsl(var(--color-black));
     transition: height 75ms;
   }
   &:hover {
-    color: white;
+    color: hsl(var(--color-white));
     &::after {
       height: 100%;
     }

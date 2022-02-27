@@ -7,14 +7,24 @@ html(lang="en")
         link(rel="stylesheet" href="/css/main.css")
         script(src="/js/main.js" defer) 
         title= page.fileSlug
+
+    //- preloads - - - -
+    //- nav pages - -
+    each nav in collections.nav
+        if !(nav.url == page.url)
+            link(rel="preload" as="fetch" type="text/html" href=nav.url)
+    //- writings pages - -
+    if page.fileSlug == 'writing' || layout == 'layouts/writing'
+        each writing in collections.writings
+            link(rel="preload" as="fetch" type="text/html" href=writing.url)
+
     body
         header
             nav
                 each nav in collections.nav
-                    - const name = nav.url == '/' ? 'home' : nav.fileSlug
+                    - const name = nav.url == '/' ? 'funstra' : nav.fileSlug
                     a(href=nav.url)= name
             hr
-        - console.log('base calling: ',layout)
         - const _layout = layout.endsWith("base") ? page.fileSlug : layout
         div
             div(data-page=_layout) 

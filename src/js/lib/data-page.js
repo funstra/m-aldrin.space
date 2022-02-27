@@ -1,5 +1,11 @@
 import zip from "./zip.js";
 
+const dynamicImport = (pathName, scriptName) => {
+  if (location.pathname === pathName) {
+    import(scriptName);
+  }
+};
+
 // Fetch html string and return a new html document
 /**
  * @param {string} href
@@ -52,7 +58,10 @@ const setPage = async ({ pathname, href }) => {
   const [dest, src] = await diffPage(destinationDocument.page);
 
   // console.log(dest.val);
-  if (dest.val.startsWith("layouts/writing")) {
+  if (
+    dest.val.startsWith("layouts/writing") ||
+    dest.val.startsWith("/writings/")
+  ) {
     src.elm.parentElement.classList.add("f-col");
   } else {
     src.elm.parentElement.classList.remove("f-col");
@@ -109,6 +118,13 @@ document.addEventListener("click", async e => {
       document.documentElement.classList.remove("loading");
       // push anchor pathname to history
       history.pushState({}, null, target.pathname);
+      // dynamicImport("/", "../tree.js");
+      if (location.pathname === "/") {
+        console.log("hello?");
+        import("../tree").then(module => {
+          module.init();
+        });
+      }
     }
   }
 });
@@ -116,4 +132,10 @@ document.addEventListener("click", async e => {
 // handle history change
 onpopstate = e => {
   setPage(location);
+  // dynamicImport("/", "../tree.js");
+  if (location.pathname === "/") {
+    import("../tree").then(module => {
+      module.init();
+    });
+  }
 };

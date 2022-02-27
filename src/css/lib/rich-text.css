@@ -1,8 +1,31 @@
 :is(h1, h2, h3, h4, h5, h6) {
   margin-bottom: 1em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-transform: uppercase;
 }
-p:not(:first-of-type) {
-  margin-top: 1em;
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.5em;
+}
+p,
+i {
+  font-size: 0.85em;
+  &:first-child {
+    text-align: center;
+    margin-inline: auto;
+    display: block;
+    max-width: 80%;
+    color: hsl(var(--color-black) / 0.85);
+    margin-bottom: 2em;
+  }
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
 }
 
 ol,

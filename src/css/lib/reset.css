@@ -21,7 +21,7 @@ html:focus-within {
 
 body {
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.25;
 }
 html,
 body {
@@ -34,9 +34,17 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
-  max-width: 100%;
+picture,
+svg {
+  width: 100%;
   display: block;
+}
+
+img {
+  object-fit: cover;
+}
+svg {
+  height: 100%;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -62,7 +70,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
-hr{
+a {
+  text-decoration: none;
+}
+hr {
   border-style: solid;
-  border-color: black;
 }

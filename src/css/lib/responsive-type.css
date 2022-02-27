@@ -1,0 +1,3 @@
+body {
+  font-size: clamp(0.95em, 3vmin, 1.15em);
+}
