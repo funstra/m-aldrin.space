@@ -17,7 +17,6 @@ html(lang="en")
     if page.fileSlug == 'writing' || layout == 'layouts/writing'
         each writing in collections.writings
             link(rel="preload" as="fetch" type="text/html" href=writing.url)
-
     body
         header
             nav

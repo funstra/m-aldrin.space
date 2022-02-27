@@ -110,22 +110,37 @@ export const init = () => {
   const origin = vector(0, -448);
 
   const yStep = SVG.getBoundingClientRect().height / nSteps;
-  const t0 = tree(origin, vector(64, yStep), nSteps/2);
-  const t1 = tree(origin, vector(-16, yStep*2), nSteps / 4);
-  const t1_least = [...t1[0].querySelectorAll("line")].reduce((prev, cur) => {
-    if (cur.getAttribute("y2") > prev.getAttribute("y2")) {
+  const t0 = tree(origin, vector(32, yStep / 2), nSteps);
+  const t0_least = [...t0[0].querySelectorAll("line")].reduce((prev, cur) => {
+    if (
+      parseFloat(cur.getAttribute("y2")) > parseFloat(prev.getAttribute("y2"))
+    ) {
       return cur;
+    } else {
+      return prev;
     }
-    return prev;
+  });
+  const t1_origin = vector(
+    parseInt(t0_least.getAttribute("x2")),
+    parseInt(t0_least.getAttribute("y2"))
+  );
+  const t1 = tree(t1_origin, vector(-32, 16), nSteps * 2);
+  const t1_least = [...t1[0].querySelectorAll("line")].reduce((prev, cur) => {
+    if (
+      parseFloat(cur.getAttribute("y2")) > parseFloat(prev.getAttribute("y2"))
+    ) {
+      return cur;
+    } else {
+      return prev;
+    }
   });
   const t2_origin = vector(
     parseInt(t1_least.getAttribute("x2")),
     parseInt(t1_least.getAttribute("y2"))
   );
-  const t2 = tree(t2_origin, vector(0, 16), nSteps * 2);
-
+  const t2 = tree(t2_origin, vector(16, yStep), nSteps / 2);
   const BBox = SVG.getBBox();
-  SVG.setAttribute("height", BBox.height);
   SVG.setAttribute("width", BBox.width);
+  SVG.setAttribute("height", BBox.height);
   SVG.style.opacity = 1;
 };
