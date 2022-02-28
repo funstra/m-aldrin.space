@@ -1,4 +1,5 @@
 mixin card(work)
+    - const ani = ``
     li.card
         div
             h3= work.titel
@@ -7,5 +8,5 @@ mixin card(work)
             a(href=work.repo target="_blank") repo
             hr(style="margin-top:0.25em")
             p= work.description
-        div(style="display:flex")
-            iframe(onload="event.target.style.display='block';event.target.style.opacity=1" src=work.iframe.src, style=`display:none;opacity:0;flex-grow:1;` width="100%" height=work.iframe.height class="drop-shadow" frameBorder="0") 
+        div
+            iframe(onload="event.target.style.display='block'" src=work.iframe.src, style=`display:none;max-width:${work.iframe.width};transition:opacity 1125ms` width="100%" height=work.iframe.height class="drop-shadow" frameBorder="0") 

@@ -47,6 +47,23 @@ const diffPage = async destination => {
   return [null, null];
 };
 
+/**
+ * @param {Document} dom
+ * @param {keyof HTMLElementTagNameMap} selectorString
+ */
+const preFetchDOMResources = async (dom, selectorString) => {
+  const resources = dom.querySelectorAll(`${selectorString}[src]`);
+  return Promise.all([...resources].map(async src => fetch(src.src)));
+};
+
+const sleep = t => {
+  return new Promise(res => {
+    setTimeout(() => {
+      res();
+    }, t);
+  });
+};
+
 // sets the page
 /**
  * @param {object} o
@@ -56,6 +73,8 @@ const diffPage = async destination => {
 const setPage = async ({ pathname, href }) => {
   const destinationDocument = await getHTML(href);
   const [dest, src] = await diffPage(destinationDocument.page);
+
+  await preFetchDOMResources(destinationDocument.page, "iframe");
 
   if (
     dest.val.startsWith("layouts/writing") ||
@@ -72,7 +91,7 @@ const setPage = async ({ pathname, href }) => {
       .getPropertyValue("--page-transition-duration")
       .replace("ms", "")
   );
-  console.log(pageTransitionDuration)
+  console.log(pageTransitionDuration);
   document.documentElement.classList.add("time-out");
   dest.elm.classList.add("slideIn");
   setTimeout(() => {
