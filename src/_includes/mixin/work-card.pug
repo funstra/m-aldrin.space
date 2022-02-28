@@ -3,9 +3,12 @@ mixin card(work)
     li.card
         div
             h3= work.titel
-            a(href=work.iframe.src target="_blank") full demo
-            br
-            a(href=work.repo target="_blank") repo
+            a(href=work.iframe.src target="_blank" style="height:2.5ex;display:inline-block") full demo
+            br(style="margin-bottom:0.25em")
+            a(href=work.repo target="_blank" style="width:max-content;overflow:hidden;display:flex;gap:0.5em")
+                span repo
+                span(style="height:2.5ex;padding:0.0625em")
+                    include ../../assets/svg/octocat.svg
             hr(style="margin-top:0.25em")
             p= work.description
         div

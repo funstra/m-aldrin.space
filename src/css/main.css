@@ -8,6 +8,7 @@
 html {
   --color-black: 0 0% 20%;
   --color-white: 0 0% 97.5%;
+  --color-accent: 240 75% 70%;
 }
 body {
   display: flex;
@@ -46,6 +47,9 @@ body {
       & > :first-child {
         margin-inline-end: auto;
       }
+      & a {
+        text-decoration: none;
+      }
     }
     & > hr {
       border-width: 0.0625em;
@@ -70,6 +74,11 @@ main {
 a {
   position: relative;
   color: currentColor;
+
+  text-decoration: underline;
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.125em;
+  text-decoration-color: hsl(var(--color-accent));
   &::after {
     content: "";
     position: absolute;
@@ -83,6 +92,9 @@ a {
   }
   &:hover {
     color: hsl(var(--color-white));
+    text-decoration-color: currentColor;
+    --svg-fg-color: var(--color-black);
+    --svg-bg-color: var(--color-white);
     &::after {
       height: 100%;
     }
