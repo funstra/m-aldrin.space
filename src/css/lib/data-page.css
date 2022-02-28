@@ -34,6 +34,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    & :is(h2, h3) {
+      margin-bottom: 0;
+    }
     & .card {
       flex-basis: 100%;
       flex-shrink: 0;
@@ -42,6 +45,18 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 2em;
+      & .tags {
+        display: flex;
+        gap: 0.25em;
+        font-size: 0.75em;
+        & li {
+          color: hsl(var(--color-white));
+          border-radius: 0.25em;
+          padding-block: 0.125em;
+          padding-inline: 0.5em;
+          background-color: hsl(var(--color-accent));
+        }
+      }
       & > div:first-child {
         flex: 1 1 0;
       }

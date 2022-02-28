@@ -1,8 +1,13 @@
 mixin card(work)
     - const ani = ``
-    li.card
+    li.card(data-work-tags=`${work.tags.join(',')}`)
         div
-            h3= work.titel
+            div(style="margin-bottom:1em")
+                h3= work.titel
+                if work.tags
+                    ul.tags
+                        each tag in work.tags
+                            li=tag
             a(href=work.iframe.src target="_blank" style="height:2.5ex;display:inline-block") full demo
             br(style="margin-bottom:0.25em")
             a(href=work.repo target="_blank" style="width:max-content;overflow:hidden;display:flex;gap:0.5em")
