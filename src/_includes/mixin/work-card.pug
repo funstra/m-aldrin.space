@@ -15,6 +15,6 @@ mixin card(work)
                 span(style="height:2.5ex;padding:0.0625em")
                     include ../../assets/svg/octocat.svg
             hr(style="margin-top:0.25em")
-            p= work.description
+            p !{work.description}
         div
             iframe(onload="event.target.style.display='block'" src=work.iframe.src, style=`display:none;max-width:${work.iframe.width};transition:opacity 1125ms` width="100%" height=work.iframe.height class="drop-shadow" frameBorder="0") 

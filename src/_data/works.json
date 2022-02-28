@@ -40,5 +40,19 @@
             "width": "100%",
             "height": "640px"
         }
+    },
+    {
+        "titel": "m-aldrin.space",
+        "description": "This website! Made with <a href='https://www.11ty.dev/'>11ty</a> & <a href='https://parceljs.org/'>ParcelJS</a>",
+        "repo": "https://github.com/funstra/m-aldrin.space",
+        "tags": [
+            "website",
+            "blog"
+        ],
+        "iframe": {
+            "src": "/",
+            "height": "100%",
+            "width": "100%"
+        }
     }
 ]
