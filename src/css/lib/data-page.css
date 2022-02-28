@@ -5,10 +5,10 @@
   overflow-y: scroll;
   transition: opacity 175ms ease-out;
 }
-[data-page=""]{
-  & svg{
+[data-page=""] {
+  & svg {
   }
-  & > main{
+  & > main {
     height: 100%;
   }
 }
@@ -18,12 +18,40 @@
   }
 }
 [data-page="about"] {
-  & main{
+  & main {
     padding: 2em;
   }
   & picture,
   & img {
     height: 100%;
+  }
+}
+[data-page="works"] {
+  & > main {
+    height: 100%;
+  }
+  & .card-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    & .card {
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2em;
+      & > div:first-child {
+        flex: 1 1 0;
+      }
+      & > div:last-child {
+        flex-grow: 1;
+      }
+      & iframe {
+        border-radius: 0.5em;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -33,5 +61,23 @@
   }
   & nav {
     margin-top: 2em;
+  }
+  & article {
+    padding-block: 4em;
+    padding-inline: 1em;
+    & i {
+      text-align: center;
+      margin-inline: auto;
+      display: block;
+    }
+    & > div {
+      columns: 35ch 2;
+    }
+    & img {
+      border-radius: 0.25em;
+      object-fit: cover;
+      margin-block: 2em;
+      box-shadow: 0 0 2em -1em hsl(var(--color-black) / 0.25);
+    }
   }
 }

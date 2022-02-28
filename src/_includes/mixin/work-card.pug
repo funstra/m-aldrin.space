@@ -1,0 +1,7 @@
+mixin card(work)
+    li.card
+        div
+            h3= work.titel
+            p= work.description
+        div
+            iframe(src=work.iframe.src, style=`max-width:${work.iframe.width};min-height:${work.iframe.height}` class="drop-shadow" frameborder="0") 

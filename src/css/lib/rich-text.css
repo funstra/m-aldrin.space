@@ -16,9 +16,6 @@ p,
 i {
   font-size: 0.85em;
   &:first-child {
-    text-align: center;
-    margin-inline: auto;
-    display: block;
     max-width: 80%;
     color: hsl(var(--color-black) / 0.85);
     margin-bottom: 2em;
@@ -27,17 +24,18 @@ i {
     margin-top: 1em;
   }
 }
+[data-page="layouts/writing"] {
+  & ol,
+  & ul {
+    font-style: italic;
+    margin-inline-start: 2em;
+    margin-block: 1em;
+  }
 
-ol,
-ul {
-  font-style: italic;
-  margin-inline-start: 2em;
-  margin-block: 1em;
-}
-
-ul {
-  & li {
-    list-style-type: "\2192";
-    padding-left: 0.5em;
+  & ul {
+    & li {
+      list-style-type: "\2192";
+      padding-left: 0.5em;
+    }
   }
 }

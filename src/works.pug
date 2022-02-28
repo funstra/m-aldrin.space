@@ -1,0 +1,7 @@
+---
+layout: layouts/base
+---
+include _includes/mixin/work-card.pug
+ul.card-list
+    each work in works
+        +card(work)

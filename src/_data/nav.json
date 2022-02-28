@@ -8,6 +8,10 @@
         "name": "about"
     },
     {
+        "url": "/works/",
+        "name": "works"
+    },
+    {
         "url": "/writing/",
         "name": "writing"
     }

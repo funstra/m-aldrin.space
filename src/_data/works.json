@@ -1,0 +1,29 @@
+[
+    {
+        "titel": "mediehuset booker",
+        "description": "Booking app for handling media equipment for Högskolan Dalarna, designen for mobile. Swipe nav bar up/down to reveal info/options. Swipe equipment cards left/right to add to current booking",
+        "iframe": {
+            "src": "https://mediehuset.vercel.app/",
+            "width": "100%",
+            "height": "640px"
+        }
+    },
+    {
+        "titel": "Loading Card animation",
+        "description": "UI design of an card with loading animation. Click ✓ to remove card",
+        "iframe": {
+            "src": "https://funstra.github.io/loader/",
+            "width": "100%",
+            "height": "384px"
+        }
+    },
+    {
+        "titel": "Qvikk task",
+        "description": "A simple todo UI design focused on keyboard usage",
+        "iframe": {
+            "src": "https://funstra.github.io/qvikk-task/",
+            "width": "100%",
+            "height": "640px"
+        }
+    }
+]

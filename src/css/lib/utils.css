@@ -1,3 +1,7 @@
 .f-col {
   flex-direction: column;
 }
+
+.drop-shadow {
+  box-shadow: 0 0 2em -1em hsl(var(--color-black) / 0.25);
+}
