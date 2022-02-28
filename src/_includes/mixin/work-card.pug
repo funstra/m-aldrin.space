@@ -2,6 +2,9 @@ mixin card(work)
     li.card
         div
             h3= work.titel
+            a(href=work.iframe.src target="_blank") full demo
+            br
+            a(href=work.repo target="_blank") repo
             p= work.description
         div
             iframe(src=work.iframe.src, style=`max-width:${work.iframe.width};min-height:${work.iframe.height}` class="drop-shadow" frameborder="0") 
