@@ -47,9 +47,6 @@ body {
       & > :first-child {
         margin-inline-end: auto;
       }
-      & a {
-        text-decoration: none;
-      }
     }
     & > hr {
       border-width: 0.0625em;
@@ -75,10 +72,12 @@ a {
   position: relative;
   color: currentColor;
 
-  text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.125em;
-  text-decoration-color: hsl(var(--color-accent));
+  &[href^="http"] {
+    text-decoration: underline;
+    text-decoration-thickness: 0.125em;
+    text-underline-offset: 0.125em;
+    text-decoration-color: hsl(var(--color-accent));
+  }
   &::after {
     content: "";
     position: absolute;
