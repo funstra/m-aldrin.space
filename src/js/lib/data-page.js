@@ -66,14 +66,20 @@ const setPage = async ({ pathname, href }) => {
     src.elm.parentElement.classList.remove("f-col");
   }
 
-  document.documentElement.classList.add("time-out");
   src.elm.classList.add("slideOut");
+  const pageTransitionDuration = parseInt(
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--page-transition-duration")
+      .replace("ms", "")
+  );
+  console.log(pageTransitionDuration)
+  document.documentElement.classList.add("time-out");
   dest.elm.classList.add("slideIn");
   setTimeout(() => {
     src.elm.remove();
     dest.elm.classList.remove("slideIn");
     document.documentElement.classList.remove("time-out");
-  }, 125);
+  }, pageTransitionDuration);
 
   src.elm.parentElement.appendChild(dest.elm);
   document.querySelector("title").innerHTML = destinationDocument.title;
@@ -108,7 +114,6 @@ document.addEventListener("click", async e => {
       // push anchor pathname to history
       history.pushState({}, null, target.pathname);
       if (location.pathname === "/") {
-        console.log("hello?");
         import("../tree").then(module => {
           module.init();
         });
@@ -120,7 +125,6 @@ document.addEventListener("click", async e => {
 // handle history change
 onpopstate = e => {
   setPage(location);
-  // dynamicImport("/", "../tree.js");
   if (location.pathname === "/") {
     import("../tree").then(module => {
       module.init();

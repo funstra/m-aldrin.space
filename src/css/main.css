@@ -30,7 +30,7 @@ body {
 
     border-radius: 0.25em;
 
-    overflow-y: hidden;
+    overflow: hidden;
     & > [data-page] {
       height: 100%;
     }

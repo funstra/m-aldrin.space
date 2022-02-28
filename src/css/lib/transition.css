@@ -1,3 +1,6 @@
+html{
+  --page-transition-duration: 125ms;
+}
 svg {
   transition: opacity 200ms;
 }
@@ -23,7 +26,7 @@ svg {
 
 .slideOut,
 .slideIn {
-  animation-duration: 125ms;
+  animation-duration: var(--page-transition-duration);
 }
 .slideOut {
   animation-name: slideOutX;

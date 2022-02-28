@@ -5,6 +5,7 @@ mixin card(work)
             a(href=work.iframe.src target="_blank") full demo
             br
             a(href=work.repo target="_blank") repo
+            hr(style="margin-top:0.25em")
             p= work.description
-        div
-            iframe(src=work.iframe.src, style=`max-width:${work.iframe.width};min-height:${work.iframe.height}` class="drop-shadow" frameborder="0") 
+        div(style="display:flex")
+            iframe(onload="event.target.style.display='block';event.target.style.opacity=1" src=work.iframe.src, style=`display:none;opacity:0;flex-grow:1;` width="100%" height=work.iframe.height class="drop-shadow" frameBorder="0") 
