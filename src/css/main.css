@@ -99,7 +99,10 @@ a {
     }
   }
 }
+picture {
+  padding: 0.5em;
+}
 img {
   border-radius: 0.125em;
-  box-shadow: 0 0 1em 0 hsl(var(--color-black) / 0.5);
+  box-shadow: 0 0 0.5em 0 hsl(var(--color-black) / 0.25);
 }

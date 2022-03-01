@@ -100,8 +100,17 @@
   }
   & article {
     padding-block: 4em;
-    padding-inline: 2rem;
-    & > picture {
+    padding-inline: 1em;
+    @media screen and (max-width: 768px) {
+      & picture {
+        aspect-ratio: 1/1;
+      }
+      & img {
+        height: 100%;
+      }
+    }
+    & picture {
+      margin-block: 2em;
     }
     & i {
       text-align: center;
@@ -114,7 +123,11 @@
     & img {
       border-radius: 0.25em;
       object-fit: cover;
-      margin-block: 2em;
+    }
+    & > nav {
+      & a {
+        white-space: nowrap;
+      }
     }
   }
 }
