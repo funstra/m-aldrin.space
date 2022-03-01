@@ -17,4 +17,4 @@ mixin card(work)
             hr(style="margin-top:0.25em")
             p !{work.description}
         div
-            iframe(onload="event.target.style.display='block'" src=work.iframe.src, style=`display:none;max-width:${work.iframe.width};transition:opacity 1125ms` width="100%" height=work.iframe.height class="drop-shadow" frameBorder="0") 
+            iframe(onload="event.target.style.display='block'" src=work.iframe.src, style=`display:none;max-width:${work.iframe.width};min-height:${work.iframe.height};transition:opacity 1125ms` width="100%" height="100%" class="drop-shadow" frameBorder="0") 

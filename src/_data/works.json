@@ -11,7 +11,7 @@
         "iframe": {
             "src": "https://mediehuset.vercel.app/",
             "width": "100%",
-            "height": "640px"
+            "height": "576px"
         }
     },
     {
@@ -24,7 +24,7 @@
         "iframe": {
             "src": "https://funstra.github.io/loader/",
             "width": "100%",
-            "height": "512px"
+            "height": "100%"
         }
     },
     {
@@ -38,7 +38,7 @@
         "iframe": {
             "src": "https://funstra.github.io/qvikk-task/",
             "width": "100%",
-            "height": "640px"
+            "height": "512px"
         }
     },
     {
@@ -51,7 +51,7 @@
         ],
         "iframe": {
             "src": "/",
-            "height": "512px",
+            "height": "100%",
             "width": "100%"
         }
     }
