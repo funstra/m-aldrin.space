@@ -53,6 +53,8 @@ const diffPage = async destination => {
  */
 const preFetchDOMResources = async (dom, selectorString) => {
   const resources = dom.querySelectorAll(`${selectorString}[src]`);
+  console.log("prefetch resources");
+  console.log(resources);
   return Promise.all([...resources].map(async src => fetch(src.src)));
 };
 
